@@ -81,7 +81,33 @@ class PyRobotTest(TestCase):
 
         self.assertEqual(open, self.robot.regular_market_open)
 
+    def test_add_row(self):
+        """Test adding a new row to our data frame."""
 
+        # Define a new row.
+        new_row_dict = {
+            'AAPL':{
+                'openPrice':100.00,
+                'closePrice':100.00,
+                'highPrice':100.00,
+                'lowPrice':100.00,
+                'askSize':100,
+                'bidSize':100,
+                'quoteTimeInLong':1586390399572
+            }
+
+        }
+
+        # Add the row.
+        self.stock_frame.add_rows(data=new_row_dict)
+
+        # Create a timestamp.
+        time_stamp_parsed = pd.to_datetime(1586390399572, unit='ms', origin='unix')
+        index_tuple = ('AAPL', time_stamp_parsed)
+
+        # Check to see if the Tuple is in the Index.
+        self.assertIn(index_tuple, self.stock_frame.frame.index)
+    
     def test_pre_market_open(self):
         """Tests whether US Pre-Market is Open"""
 
