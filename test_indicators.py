@@ -121,6 +121,22 @@ class PyRobotIndicatorTest(TestCase):
 
         # And that it's not empty.
         self.assertFalse(self.stock_frame.frame['ema'].empty)
+        
+        def test_delete_existing_position(self):
+        """Test deleting an exisiting position."""
+
+        self.portfolio.add_position(
+            symbol='MSFT',
+            asset_type='equity',
+            quantity=10,
+            purchase_price=3.00,
+            purchase_date='2020-01-31'
+        )
+
+        delete_status = self.portfolio.remove_position(symbol='MSFT')
+        correct_status = (True, 'MSFT was successfully removed.')
+
+        self.assertTupleEqual(delete_status, correct_status)
 
     def test_indicator_exist(self):
         """Test checkinf if an indicator column exist."""
