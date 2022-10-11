@@ -102,6 +102,20 @@ class PyRobotTradeTest(TestCase):
         # Add an instrument to the Trade.
         new_trade.instrument(symbol='MSFT', quantity=2, asset_type='EQUITY')
         self.assertDictEqual(new_trade.order['orderLegCollection'][0], order_leg)
+        
+    def test_create_new_market_order(self):
+        """Create a new market order."""
+
+        # Create a new Trade Object.
+        new_trade = self.robot.create_trade(
+            trade_id='test_1',
+            enter_or_exit='enter',
+            long_or_short='short',
+            order_type='mkt'
+        )
+
+        self.assertIsInstance(new_trade, Trade)
+        self.assertEqual(new_trade.order_type, 'mkt')
 
     def test_add_stop_loss_percentage(self):
         """Tests adding a stop Loss Order to an exisiting Limit Order."""
@@ -195,3 +209,8 @@ class PyRobotTradeTest(TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
+  def tearDown(self) -> None:
+        """Teardown the Robot."""
+
+        self.robot = None
