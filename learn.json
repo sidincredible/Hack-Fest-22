@@ -1,6 +1,7 @@
 {
 	"angularjs": {
 		"name": "AngularJS",
+		"homepage": "angularjs.org",
 		"description": "HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop.",
 		"homepage": "angularjs.org",
 		"examples": [{
@@ -62,6 +63,7 @@
 			}]
 		}, {
 			"heading": "Community",
+			"heading": "Articles and Guides",
 			"links": [{
 				"name": "Walkthroughs and Tutorials on YouTube",
 				"url": "http://www.youtube.com/playlist?list=PL1w1q3fL4pmgqpzb-XhG7Clgi67d_OHXz"
@@ -191,6 +193,9 @@
 			}]
 		}, {
 			"heading": "Community",
+			"name": "Atma.js",
+		"description": "HMVC and the component-based architecture for building client, server or hybrid applications",
+		"homepage": "atmajs.com",
 			"links": [{
 				"name": "Atma.js on Stack Overflow",
 				"url": "http://stackoverflow.com/questions/tagged/atmajs"
