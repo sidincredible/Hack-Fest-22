@@ -18,6 +18,16 @@
   color: #080;
   font-weight: bold;
 }
+.highlight .go {
+  color: #888;
+}
+.highlight .gt {
+  color: #04D;
+}
+.highlight .err {
+  color: #F00;
+  background-color: #FAA;
+}
 .highlight .kp {
   color: #038;
 }
@@ -150,6 +160,14 @@
 }
 .highlight .ge {
   font-style: italic;
+}
+.highlight .nn {
+  color: #0e84b5;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #F00;
+  font-weight: bold;
 }
 .highlight .gs {
   font-weight: bold;
