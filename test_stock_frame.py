@@ -63,6 +63,41 @@ class PyRobotStockFrameTest(TestCase):
 
         self.assertIsInstance(self.stock_frame.frame, pd.DataFrame)
         self.assertIsInstance(self.stock_frame.frame.index, pd.MultiIndex)
+        def test_add_stop_loss_dollar(self):
+        """Tests adding a stop Loss Order to an exisiting Limit Order."""
+        
+        # Create a new Trade Object.
+        new_trade = self.robot.create_trade(
+            trade_id='test_1',
+            enter_or_exit='enter',
+            long_or_short='long',
+            order_type='lmt',
+            price=12.00
+        )
+
+        # Add a new instrument.
+        new_trade.instrument(symbol='MSFT', quantity=2, asset_type='EQUITY')
+
+        # Add a new stop Loss.
+        new_trade.add_stop_loss(stop_size=.10, percentage=False)
+
+        stop_loss_order = {
+            "orderType": "STOP",
+            "session": "NORMAL",
+            "duration": "DAY",
+            "stopPrice": 11.90,
+            "orderStrategyType": "SINGLE",
+            "orderLegCollection": [
+                {
+                    "instruction": 'SELL',
+                    "quantity": 2,
+                    "instrument": {
+                        "symbol": 'MSFT',
+                        "assetType": 'EQUITY'
+                    }
+                }
+            ]
+        }
 
     def test_frame_symbols(self):
         """Test that the `frame.index` property contains the specified symbols."""
