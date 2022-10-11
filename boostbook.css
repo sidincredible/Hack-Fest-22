@@ -110,6 +110,13 @@ Headings
         font-size: 140%;
     }
 
+ h1.title { font-size: 140% }
+    h2.title { font-size: 140% }
+    h3.title { font-size: 130% }
+    h4.title { font-size: 120% }
+    h5.title { font-size: 110% }
+    h6.title { font-size: 100% }
+
     .section h2 { font-size: 140% }
     .section h3 { font-size: 130% }
     .section h4 { font-size: 120% }
@@ -546,6 +553,17 @@ Colors
         {
             border: 1px solid gray;
         }
+        
+        .keyword { color: #0000AA; }
+        .identifier { color: #000000; }
+        .special { color: #707070; }
+        .preprocessor { color: #402080; }
+        .char { color: teal; }
+        .comment { color: #800000; }
+        .string { color: teal; }
+        .number { color: teal; }
+        .white_bkd { background-color: #FFFFFF; }
+        .dk_grey_bkd { background-color: #999999; }
 
         td .programlisting,
         td .screen
