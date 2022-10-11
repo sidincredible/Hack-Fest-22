@@ -54,7 +54,34 @@ class PyRobotPortfolioTest(TestCase):
         """Test the Stock Frame property."""
 
         # Should be None if wasn't initalized from the PyRobot.
-        self.assertIsNone(self.portfolio.stock_frame)        
+        self.assertIsNone(self.portfolio.stock_frame)    
+    
+        def test_post_market_open(self):
+        """Tests whether US Post-Market is Open"""
+
+        # Define right now.
+        right_now = datetime.utcnow().timestamp()
+
+        # Define the start time.
+        post_market_start_time = datetime.utcnow().replace(
+            hour=21,
+            minute=00,
+            second=00
+        ).timestamp()
+
+        # Define the end time.
+        post_market_end_time = datetime.utcnow().replace(
+            hour=1,
+            minute=30,
+            second=00
+        ).timestamp()
+
+        if post_market_end_time >= right_now >= post_market_start_time:
+            open = True
+        else:
+            open = False
+
+        self.assertEqual(open, self.robot.post_market_open)
 
     def test_historical_prices_property(self):
         """Test the Historical Prices property."""
