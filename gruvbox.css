@@ -53,6 +53,14 @@
   color: #b8bb26;
   font-style: italic;
 }
+.highlight .gi {
+  color: #b8bb26;
+  background-color: #282828;
+}
+.highlight .gd {
+  color: #fb4934;
+  background-color: #282828;
+}
 .highlight .si {
   color: #b8bb26;
   font-style: italic;
@@ -81,4 +89,10 @@
 }
 .highlight .ss {
   color: #83a598;
+}
+.highlight .na {
+  color: #b8bb26;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #d3869b;
 }
