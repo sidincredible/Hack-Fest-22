@@ -89,6 +89,32 @@
           ready fibers among them
         </li>
 </ul></div>
+      <li class="listitem">
+          work-stealing: ready fibers are hold in a local queue, when the fiber-scheduler's
+          local queue runs out of ready fibers, it randomly selects another fiber-scheduler
+          and tries to steal a ready fiber from the victim (implemented in <a class="link" href="scheduling.html#class_work_stealing"><code class="computeroutput">work_stealing</code></a> and
+          <a class="link" href="numa.html#class_numa_work_stealing"><code class="computeroutput">numa::work_stealing</code></a>)
+        </li>
+<li class="listitem">
+          work-requesting: ready fibers are hold in a local queue, when the fiber-scheduler's
+          local queue runs out of ready fibers, it randomly selects another fiber-scheduler
+          and requests for a ready fibers, the victim fiber-scheduler sends a ready-fiber
+          back
+        </li>
+<li class="listitem">
+          work-sharing: ready fibers are hold in a global queue, fiber-scheduler
+          concurrently push and pop ready fibers to/from the global queue (implemented
+          in <a class="link" href="scheduling.html#class_shared_work"><code class="computeroutput">shared_work</code></a>)
+        </li>
+<li class="listitem">
+          work-distribution: fibers that became ready are proactivly distributed
+          to idle fiber-schedulers or fiber-schedulers with low load
+        </li>
+<li class="listitem">
+          work-balancing: a dedicated (helper) fiber-scheduler periodically collects
+          informations about all fiber-scheduler running in other threads and re-distributes
+          ready fibers among them
+        </li>
 <h4>
 <a name="fiber.tuning.h3"></a>
       <span class="phrase"><a name="fiber.tuning.ttas_locks"></a></span><a class="link" href="tuning.html#fiber.tuning.ttas_locks">TTAS
